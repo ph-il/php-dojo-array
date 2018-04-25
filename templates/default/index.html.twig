@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Array Dojo!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Welcome to our Array Dojo! ✅</h1>
+
+    <ol>
+        <li>First work on the Array Review in the controller
+            <ul>
+                <li>
+                    at <code><a href="{{ 'src/Controller/ArrayController.php'|file_link(0) }}">src/Controller/ArrayController.php</a></code>
+                </li>
+                <li>
+                    View result at <code><a href="{{ url('array') }}">{{ url('array') }}</a></code>.
+                    <i>Please do not look directly into template. Partial answers are visibles.</i>
+                </li>
+                <li>
+                    Answer available in  <code><a href="{{ 'doc/answers/Controller/ArrayController.txt'|file_link(0) }}">doc/answers/Controller/ArrayController.txt</a></code>
+                </li>
+            </ul>
+        </li>
+        <li>After work on the Card Games in the controller
+            <ul>
+                <li>
+                    at <code><a href="{{ 'src/Controller/CardController.php'|file_link(0) }}">src/Controller/CardController.php</a></code>
+                </li>
+                <li>
+                    View result at <code><a href="{{ url('card') }}">{{ url('card') }}</a></code>
+                </li>
+            </ul>
+        </li>
+    </ol>
+</div>
+{% endblock %}

@@ -1,0 +1,832 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Array Dojo - Revision{% endblock %}
+
+{# PLEASE DON'T READ IN THIS TEMPLATE - THERE SOME ANSWERS IN THE CODE #}
+
+{% block body %}
+    <style>
+        .example-wrapper {
+            margin: 1em auto;
+            max-width: 1000px;
+            width: 95%;
+            font: 18px/1.5 sans-serif;
+        }
+    </style>
+
+    <div class="example-wrapper">
+        <table>
+            <thead>
+            <tr>
+                <th>Variable</th>
+                <th>Value</th>
+                <th>Expected</th>
+                <th>helper 1</th>
+                <th>helper 2</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>arrayOld</td>
+                <td>{{ dump(arrayOld) }}</td>
+                <td>
+                    {% include 'array/includes/arrayOld.html.twig' %}
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>arrayNew</td>
+                <td>{{ dump(arrayNew) }}</td>
+                <td>
+                    {% include 'array/includes/arrayNew.html.twig' %}
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>arrayOldCount</td>
+                <td>{{ dump(arrayOldCount) }}</td>
+                <td>
+                    <pre class="sf-dump"><span class="sf-dump-num">0</span></pre>
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>arrayNewCount</td>
+                <td>{{ dump(arrayNewCount) }}</td>
+                <td>
+                    <pre class="sf-dump"><span class="sf-dump-num">10</span></pre>
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+{% if arrayCountDesc %}
+            <tr>
+                <td></td>
+                <td colspan="4">
+                        <a href="http://php.net/manual/en/function.count.php">count</a> —
+                                                                                        Count all elements in an array, or something in an object
+                        <br>
+                        sizeof — Alias of count()<br>
+                        <i>count() may return 0 for a variable that isn't set, but it may
+                            also return 0 for a variable that has been initialized with
+                            an empty array. Use isset() to test if a variable is set.</i>
+                </td>
+            </tr>
+            <tr>
+                <td>arrayOldNew</td>
+                <td>{{ dump(arrayOldNew) }}</td>
+                <td>
+<pre class="sf-dump">
+<span class="sf-dump-note">array:18</span> [
+  <span class="sf-dump-index">0</span> =&gt; <span class="sf-dump-num">4</span>
+  <span class="sf-dump-index">1</span> =&gt; <span class="sf-dump-num">7</span>
+  <span class="sf-dump-index">2</span> =&gt; <span class="sf-dump-num">8</span>
+  <span class="sf-dump-index">3</span> =&gt; <span class="sf-dump-num">1</span>
+  <span class="sf-dump-index">4</span> =&gt; <span class="sf-dump-num">2</span>
+  <span class="sf-dump-index">5</span> =&gt; <span class="sf-dump-num">7</span>
+  <span class="sf-dump-index">6</span> =&gt; <span class="sf-dump-num">9</span>
+  <span class="sf-dump-index">7</span> =&gt; <span class="sf-dump-num">10</span>
+  <span class="sf-dump-index">8</span> =&gt; <span class="sf-dump-num">5</span>
+  <span class="sf-dump-index">9</span> =&gt; <span class="sf-dump-num">0</span>
+  <span class="sf-dump-index">10</span> =&gt; <span class="sf-dump-num">10</span>
+  <span class="sf-dump-index">11</span> =&gt; <span class="sf-dump-num">2</span>
+  <span class="sf-dump-index">12</span> =&gt; <span class="sf-dump-num">4</span>
+  <span class="sf-dump-index">13</span> =&gt; <span class="sf-dump-num">7</span>
+  <span class="sf-dump-index">14</span> =&gt; <span class="sf-dump-num">6</span>
+  <span class="sf-dump-index">15</span> =&gt; <span class="sf-dump-num">9</span>
+  <span class="sf-dump-index">16</span> =&gt; <span class="sf-dump-num">1</span>
+  <span class="sf-dump-index">17</span> =&gt; <span class="sf-dump-num">2</span>
+]</pre>
+                </td>
+                <td>$arrayOld
+                    {% include 'array/includes/arrayOld.html.twig' %}
+
+                </td>
+                <td>$arrayNew
+                    {% include 'array/includes/arrayNew.html.twig' %}
+                </td>
+            </tr>
+{% if arrayOldNewDesc %}
+            <tr>
+                <td></td>
+                <td colspan="4">
+                        <a href="http://php.net/manual/en/function.count.php">array_merge</a> —
+                                                                                              Merge one or more arrays
+                        <br>
+                        <i>Merges the elements of one or more arrays together so that the values of one are appended to
+                            the end of the previous one. It returns the resulting array.<br>
+                            If the input arrays have the same string keys, then the later value for that key will
+                            overwrite the previous one. If, however, the arrays contain numeric keys, the later value
+                            will not overwrite the original value, but will be appended.<br>
+                            Values in the input array with numeric keys will be renumbered with incrementing keys
+                            starting from zero in the result array.<br>
+                        </i>
+                </td>
+            </tr>
+            <tr>
+                <td>arrayPoetry</td>
+                <td>{{ dump(arrayPoetry) }}</td>
+                <td>
+                    {% include 'array/includes/arrayPoetry.html.twig' %}
+                </td>
+                <td>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>arrayOldNotInNew</td>
+                <td>{{ dump(arrayOldNotInNew) }}</td>
+                <td>
+<pre class="sf-dump">
+<span class="sf-dump-note">array:1</span> [
+  <span class="sf-dump-key">2</span> =&gt; <span class="sf-dump-num">8</span>
+]</pre>
+                </td>
+                <td>$arrayOld
+                    {% include 'array/includes/arrayOld.html.twig' %}
+
+                </td>
+                <td>$arrayNew
+                    {% include 'array/includes/arrayNew.html.twig' %}
+                </td>
+            </tr>
+            <tr>
+                <td>arrayNewNotInOld</td>
+                <td>{{ dump(arrayNewNotInOld) }}</td>
+                <td>
+<pre class="sf-dump">
+<span class="sf-dump-note">array:3</span> [
+  <span class="sf-dump-key">0</span> =&gt; <span class="sf-dump-num">5</span>
+  <span class="sf-dump-key">1</span> =&gt; <span class="sf-dump-num">0</span>
+  <span class="sf-dump-key">6</span> =&gt; <span class="sf-dump-num">6</span>
+]</pre>
+                </td>
+                <td>$arrayNew
+                    {% include 'array/includes/arrayNew.html.twig' %}
+                </td>
+                <td>$arrayOld
+                    {% include 'array/includes/arrayOld.html.twig' %}
+
+                </td>
+            </tr>
+            <tr>
+                <td>arrayOldNotInNewWithKey</td>
+                <td>{{ dump(arrayOldNotInNewWithKey) }}</td>
+                <td>
+<pre class="sf-dump">
+<span class="sf-dump-note">array:7</span> [
+  <span class="sf-dump-key">0</span> =&gt; <span class="sf-dump-num">4</span>
+  <span class="sf-dump-key">1</span> =&gt; <span class="sf-dump-num">7</span>
+  <span class="sf-dump-key">2</span> =&gt; <span class="sf-dump-num">8</span>
+  <span class="sf-dump-key">3</span> =&gt; <span class="sf-dump-num">1</span>
+  <span class="sf-dump-key">4</span> =&gt; <span class="sf-dump-num">2</span>
+  <span class="sf-dump-key">6</span> =&gt; <span class="sf-dump-num">9</span>
+  <span class="sf-dump-key">7</span> =&gt; <span class="sf-dump-num">10</span>
+]</pre>
+                </td>
+                <td>$arrayOld
+                    {% include 'array/includes/arrayOld.html.twig' %}
+
+                </td>
+                <td>$arrayNew
+                    {% include 'array/includes/arrayNew.html.twig' %}
+                </td>
+            </tr>
+            <tr>
+                <td>arrayNewNotInOldWithKey</td>
+                <td>{{ dump(arrayNewNotInOldWithKey) }}</td>
+                <td>
+<pre class="sf-dump">
+<span class="sf-dump-note">array:9</span> [
+  <span class="sf-dump-key">0</span> =&gt; <span class="sf-dump-num">5</span>
+  <span class="sf-dump-key">1</span> =&gt; <span class="sf-dump-num">0</span>
+  <span class="sf-dump-key">2</span> =&gt; <span class="sf-dump-num">10</span>
+  <span class="sf-dump-key">3</span> =&gt; <span class="sf-dump-num">2</span>
+  <span class="sf-dump-key">4</span> =&gt; <span class="sf-dump-num">4</span>
+  <span class="sf-dump-key">6</span> =&gt; <span class="sf-dump-num">6</span>
+  <span class="sf-dump-key">7</span> =&gt; <span class="sf-dump-num">9</span>
+  <span class="sf-dump-key">8</span> =&gt; <span class="sf-dump-num">1</span>
+  <span class="sf-dump-key">9</span> =&gt; <span class="sf-dump-num">2</span>
+]</pre>
+                </td>
+                <td>$arrayNew
+                    {% include 'array/includes/arrayNew.html.twig' %}
+                </td>
+                <td>$arrayOld
+                    {% include 'array/includes/arrayOld.html.twig' %}
+
+                </td>
+            </tr>
+            <tr>
+                <td>arrayNewNotInOldOnKeys</td>
+                <td>{{ dump(arrayNewNotInOldOnKeys) }}</td>
+                <td>
+<pre class="sf-dump">
+<span class="sf-dump-note">array:2</span> [
+  <span class="sf-dump-key">8</span> =&gt; <span class="sf-dump-num">1</span>
+  <span class="sf-dump-key">9</span> =&gt; <span class="sf-dump-num">2</span>
+]</pre>
+                </td>
+                <td>$arrayNew
+                    {% include 'array/includes/arrayNew.html.twig' %}
+                </td>
+                <td>$arrayOld
+                    {% include 'array/includes/arrayOld.html.twig' %}
+
+                </td>
+            </tr>
+
+            <tr>
+                <td>arrayNewNotInOldOnKeys</td>
+                <td>{{ dump(arrayNewNotInOldOnKeys) }}</td>
+                <td>
+<pre class="sf-dump">
+<span class="sf-dump-note">array:2</span> [
+  <span class="sf-dump-key">8</span> =&gt; <span class="sf-dump-num">1</span>
+  <span class="sf-dump-key">9</span> =&gt; <span class="sf-dump-num">2</span>
+]</pre>
+                </td>
+                <td>$arrayNew
+                    {% include 'array/includes/arrayNew.html.twig' %}
+                </td>
+                <td>$arrayOld
+                    {% include 'array/includes/arrayOld.html.twig' %}
+                </td>
+            </tr>
+{% if arrayNotInDesc %}
+            <tr>
+                <td></td>
+                <td colspan="4">
+                        <a href="http://php.net/manual/en/function.array-diff.php">array_diff</a> — Computes the difference of arrays
+                        <br>
+                        <i>Compares array1 against one or more other arrays and returns the values in array1 that are
+                            not present in any of the other arrays.</i><br>
+                        <i>Returns an array containing all the entries from array1 that are not present in any of the
+                            other arrays.</i><br>
+                        <a href="http://php.net/manual/en/function.array-diff-assoc.php">array_diff_assoc</a> — Computes the difference of arrays with additional index check
+                        <br>
+                        <i>Compares array1 against array2 and returns the difference. Unlike array_diff() the array keys
+                            are also used in the comparison.</i><br>
+                        <i>Returns an array containing all the values from array1 that are not present in any of the
+                            other arrays.</i><br>
+                        <a href="http://php.net/manual/en/function.array-diff-key.php">array_diff_key</a> — Computes the difference of arrays using keys for comparison
+                        <br>
+                        <i>Compares the keys from array1 against the keys from array2 and returns the difference. This
+                            function is like array_diff() except the comparison is done on the keys instead of the
+                            values.</i><br>
+                        <i>Returns an array containing all the entries from array1 whose keys are absent from all of the
+                            other arrays.</i><br>
+                        <a href="http://php.net/manual/en/function.array-diff-uassoc.php">array_diff_uassoc</a> — Computes the difference of arrays with additional index check which is performed by a user supplied callback function
+                        <br>
+                        <a href="http://php.net/manual/en/function.array-diff-ukey.php">array_diff_ukey</a> — Computes the difference of arrays using a callback function on the keys for comparison
+                        <br>
+                        <a href="http://php.net/manual/en/function.array-udiff">array_udiff</a> — Computes the difference of arrays by using a callback function for data comparison
+                        <br>
+                        <a href="http://php.net/manual/en/function.array-udiff-assoc.php">array_udiff_assoc</a> — Computes the difference of arrays with additional index check, compares data by a callback function
+                        <br>
+                        <a href="http://php.net/manual/en/function.array-udiff-uassoc.php">array_udiff_uassoc</a> — Computes the difference of arrays with additional index check, compares data and indexes by a callback function
+                        <br>
+                </td>
+            </tr>
+            <tr>
+                <td>arrayGenerated</td>
+                <td>{{ dump(arrayGenerated) }}</td>
+                <td>
+                    {% include 'array/includes/arrayGenerated.html.twig' %}
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>arrayNewNotInGeneratedOnKeys</td>
+                <td>{{ dump(arrayNewNotInGeneratedOnKeys) }}</td>
+                <td>
+<pre class="sf-dump">
+<span class="sf-dump-note">array:5</span> [
+  <span class="sf-dump-key">0</span> =&gt; <span class="sf-dump-num">5</span>
+  <span class="sf-dump-key">1</span> =&gt; <span class="sf-dump-num">0</span>
+  <span class="sf-dump-key">2</span> =&gt; <span class="sf-dump-num">10</span>
+  <span class="sf-dump-key">8</span> =&gt; <span class="sf-dump-num">1</span>
+  <span class="sf-dump-key">9</span> =&gt; <span class="sf-dump-num">2</span>
+]</pre>
+                </td>
+                <td>$arrayNew
+                    {% include 'array/includes/arrayNew.html.twig' %}
+                </td>
+                <td>$arrayGenerated
+                    {% include 'array/includes/arrayGenerated.html.twig' %}
+
+                </td>
+            </tr>
+
+            <tr>
+                <td>arrayOldInNew</td>
+                <td>{{ dump(arrayOldInNew) }}</td>
+                <td>
+<pre class="sf-dump">
+<span class="sf-dump-note">array:7</span> [
+  <span class="sf-dump-key">0</span> =&gt; <span class="sf-dump-num">4</span>
+  <span class="sf-dump-key">1</span> =&gt; <span class="sf-dump-num">7</span>
+  <span class="sf-dump-key">3</span> =&gt; <span class="sf-dump-num">1</span>
+  <span class="sf-dump-key">4</span> =&gt; <span class="sf-dump-num">2</span>
+  <span class="sf-dump-key">5</span> =&gt; <span class="sf-dump-num">7</span>
+  <span class="sf-dump-key">6</span> =&gt; <span class="sf-dump-num">9</span>
+  <span class="sf-dump-key">7</span> =&gt; <span class="sf-dump-num">10</span>
+]</pre>
+                </td>
+                <td>$arrayOld
+                    {% include 'array/includes/arrayOld.html.twig' %}
+
+                </td>
+                <td>$arrayNew
+                    {% include 'array/includes/arrayNew.html.twig' %}
+                </td>
+            </tr>
+            <tr>
+                <td>arrayNewInOld</td>
+                <td>{{ dump(arrayNewInOld) }}</td>
+                <td>
+<pre class="sf-dump">
+<span class="sf-dump-note">array:7</span> [
+  <span class="sf-dump-key">2</span> =&gt; <span class="sf-dump-num">10</span>
+  <span class="sf-dump-key">3</span> =&gt; <span class="sf-dump-num">2</span>
+  <span class="sf-dump-key">4</span> =&gt; <span class="sf-dump-num">4</span>
+  <span class="sf-dump-key">5</span> =&gt; <span class="sf-dump-num">7</span>
+  <span class="sf-dump-key">7</span> =&gt; <span class="sf-dump-num">9</span>
+  <span class="sf-dump-key">8</span> =&gt; <span class="sf-dump-num">1</span>
+  <span class="sf-dump-key">9</span> =&gt; <span class="sf-dump-num">2</span>
+]
+</pre>
+                </td>
+                <td>$arrayNew
+                    {% include 'array/includes/arrayNew.html.twig' %}
+                </td>
+                <td>$arrayOld
+                    {% include 'array/includes/arrayOld.html.twig' %}
+
+                </td>
+            </tr>
+            <tr>
+                <td>arrayOldInNewWithKey</td>
+                <td>{{ dump(arrayOldInNewWithKey) }}</td>
+                <td>
+<pre class="sf-dump">
+<span class="sf-dump-note">array:1</span> [
+  <span class="sf-dump-key">5</span> =&gt; <span class="sf-dump-num">7</span>
+]</pre>
+                </td>
+                <td>$arrayOld
+                    {% include 'array/includes/arrayOld.html.twig' %}
+
+                </td>
+                <td>$arrayNew
+                    {% include 'array/includes/arrayNew.html.twig' %}
+                </td>
+            </tr>
+            <tr>
+                <td>arrayNewInOldWithKey</td>
+                <td>{{ dump(arrayNewInOldWithKey) }}</td>
+                <td>
+<pre class="sf-dump">
+<span class="sf-dump-note">array:1</span> [
+  <span class="sf-dump-key">5</span> =&gt; <span class="sf-dump-num">7</span>
+]
+</pre>
+                </td>
+                <td>$arrayNew
+                    {% include 'array/includes/arrayNew.html.twig' %}
+                </td>
+                <td>$arrayOld
+                    {% include 'array/includes/arrayOld.html.twig' %}
+
+                </td>
+            </tr>
+            <tr>
+                <td>arrayOldInNewOnKeys</td>
+                <td>{{ dump(arrayOldInNewOnKeys) }}</td>
+                <td>{% include 'array/includes/arrayOld.html.twig' %}</td>
+                <td>$arrayOld
+                    {% include 'array/includes/arrayOld.html.twig' %}
+
+                </td>
+                <td>$arrayNew
+                    {% include 'array/includes/arrayNew.html.twig' %}
+                </td>
+            </tr>
+            <tr>
+                <td>arrayNewInOldOnKeys</td>
+                <td>{{ dump(arrayNewInOldOnKeys) }}</td>
+                <td>
+<pre class="sf-dump">
+<span class="sf-dump-note">array:8</span> [
+  <span class="sf-dump-index">0</span> =&gt; <span class="sf-dump-num">5</span>
+  <span class="sf-dump-index">1</span> =&gt; <span class="sf-dump-num">0</span>
+  <span class="sf-dump-index">2</span> =&gt; <span class="sf-dump-num">10</span>
+  <span class="sf-dump-index">3</span> =&gt; <span class="sf-dump-num">2</span>
+  <span class="sf-dump-index">4</span> =&gt; <span class="sf-dump-num">4</span>
+  <span class="sf-dump-index">5</span> =&gt; <span class="sf-dump-num">7</span>
+  <span class="sf-dump-index">6</span> =&gt; <span class="sf-dump-num">6</span>
+  <span class="sf-dump-index">7</span> =&gt; <span class="sf-dump-num">9</span>
+]
+</pre>
+                </td>
+                <td>$arrayOld
+                    {% include 'array/includes/arrayOld.html.twig' %}
+
+                </td>
+                <td></td>
+            </tr>
+{% if arrayInDesc %}
+            <tr>
+                <td></td>
+                <td colspan="4">
+                        <a href="http://php.net/manual/en/function.array-intersect.php">array_intersect</a> — Computes the intersection of arrays
+                        <br>
+                        <i>array_intersect() returns an array containing all the values of array1 that are present in
+                            all the arguments. Note that keys are preserved.</i><br>
+                        <i>Returns an array containing all of the values in array1 whose values exist in all of the
+                            parameters.</i><br>
+                        <a href="http://php.net/manual/en/function.array-intersect-assoc.php">array_intersect_assoc</a> — Computes the intersection of arrays with additional index check
+                        <br>
+                        <i>array_intersect_assoc() returns an array containing all the values of array1 that are present
+                            in all the arguments. Note that the keys are also used in the comparison unlike in
+                            array_intersect().</i><br>
+                        <i>Returns an associative array containing all the values in array1 that are present in all of
+                            the arguments.</i><br>
+                        <a href="http://php.net/manual/en/function.array-intersect-key.php">array_intersect_key</a> — Computes the intersection of arrays using keys for comparison
+                        <br>
+                        <i>array_intersect_key() returns an array containing all the entries of array1 which have keys
+                            that are present in all the arguments.</i><br>
+                        <i>Returns an associative array containing all the entries of array1 which have keys that are
+                            present in all arguments.</i><br>
+                        <a href="http://php.net/manual/en/function.array-intersect-uassoc.php">array_intersect_uassoc</a> — Computes the intersection of arrays with additional index check, compares indexes by a callback function
+                        <br>
+                        <a href="http://php.net/manual/en/function.array-intersect-ukey.php">array_intersect_ukey</a> — Computes the intersection of arrays using a callback function on the keys for comparison
+                        <br>
+                        <a href="http://php.net/manual/en/function.array-uintersect">array_uintersect</a> — Computes the intersection of arrays, compares data by a callback function
+                        <br>
+                        <a href="http://php.net/manual/en/function.array-uintersect-assoc.php">array_uintersect_assoc</a> — Computes the intersection of arrays with additional index check, compares data by a callback function
+                        <br>
+                        <a href="http://php.net/manual/en/function.array-uintersect-uassoc.php">array_uintersect_uassoc</a> — Computes the intersection of arrays with additional index check, compares data and indexes by separate callback functions
+                        <br>
+                </td>
+            </tr>
+            <tr>
+                <td>arrayOldNoDuplicate</td>
+                <td>{{ dump(arrayOldNoDuplicate) }}</td>
+                <td>
+<pre class="sf-dump">
+<span class="sf-dump-note">array:7</span> [
+  <span class="sf-dump-index">0</span> =&gt; <span class="sf-dump-num">4</span>
+  <span class="sf-dump-index">1</span> =&gt; <span class="sf-dump-num">7</span>
+  <span class="sf-dump-index">2</span> =&gt; <span class="sf-dump-num">8</span>
+  <span class="sf-dump-index">3</span> =&gt; <span class="sf-dump-num">1</span>
+  <span class="sf-dump-index">4</span> =&gt; <span class="sf-dump-num">2</span>
+  <span class="sf-dump-index">6</span> =&gt; <span class="sf-dump-num">9</span>
+  <span class="sf-dump-index">7</span> =&gt; <span class="sf-dump-num">10</span>
+]</pre>
+                </td>
+                <td>$arrayOld
+                    {% include 'array/includes/arrayOld.html.twig' %}
+
+                </td>
+                <td></td>
+            </tr>
+{% if arrayNoDuplicateDesc %}
+            <tr>
+                <td></td>
+                <td colspan="4">
+                        <a href="http://php.net/manual/en/function.array-unique.php">array_unique</a> — Removes duplicate values from an array
+                        <br>
+                        <i>Takes an input array and returns a new array without duplicate values.</i><br>
+                        <i>Note that keys are preserved. If multiple elements compare equal under the given sort_flags, then the key and value of the first equal element will be retained.</i><br>
+
+                </td>
+            </tr>
+            <tr>
+                <td>arrayGeneratedColor</td>
+                <td>{{ dump(arrayGeneratedColor) }}</td>
+                <td>
+<pre class="sf-dump">
+<span class="sf-dump-note">array:5</span> [
+  "<span class="sf-dump-key">Red</span>" =&gt; <span class="sf-dump-num">0</span>
+  "<span class="sf-dump-key">Blue</span>" =&gt; <span class="sf-dump-num">0</span>
+  "<span class="sf-dump-key">Green</span>" =&gt; <span class="sf-dump-num">0</span>
+  "<span class="sf-dump-key">Yellow</span>" =&gt; <span class="sf-dump-num">0</span>
+  "<span class="sf-dump-key">Pink</span>" =&gt; <span class="sf-dump-num">0</span>
+]</pre>
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>arrayFillToSize</td>
+                <td>{{ dump(arrayFillToSize) }}</td>
+                <td>
+<pre class="sf-dump">
+<span class="sf-dump-note">array:10</span> [
+  <span class="sf-dump-index">0</span> =&gt; <span class="sf-dump-num">4</span>
+  <span class="sf-dump-index">1</span> =&gt; <span class="sf-dump-num">7</span>
+  <span class="sf-dump-index">2</span> =&gt; <span class="sf-dump-num">8</span>
+  <span class="sf-dump-index">3</span> =&gt; <span class="sf-dump-num">1</span>
+  <span class="sf-dump-index">4</span> =&gt; <span class="sf-dump-num">2</span>
+  <span class="sf-dump-index">5</span> =&gt; <span class="sf-dump-num">7</span>
+  <span class="sf-dump-index">6</span> =&gt; <span class="sf-dump-num">9</span>
+  <span class="sf-dump-index">7</span> =&gt; <span class="sf-dump-num">10</span>
+  <span class="sf-dump-index">8</span> =&gt; <span class="sf-dump-num">11</span>
+  <span class="sf-dump-index">9</span> =&gt; <span class="sf-dump-num">11</span>
+]</pre>
+                </td>
+                <td>$arrayOld
+                    {% include 'array/includes/arrayOld.html.twig' %}
+                </td>
+                <td>arrayNewCount: {{ dump(arrayNewCount) }}</td>
+            </tr>
+            <tr>
+                <td>arrayGeneratedUnits</td>
+                <td>{{ dump(arrayGeneratedUnits) }}</td>
+                <td>
+<pre class="sf-dump">
+<span class="sf-dump-note">array:14</span> [
+  <span class="sf-dump-index">0</span> =&gt; <span class="sf-dump-num">4</span>
+  <span class="sf-dump-index">1</span> =&gt; <span class="sf-dump-num">5</span>
+  <span class="sf-dump-index">2</span> =&gt; <span class="sf-dump-num">6</span>
+  <span class="sf-dump-index">3</span> =&gt; <span class="sf-dump-num">7</span>
+  <span class="sf-dump-index">4</span> =&gt; <span class="sf-dump-num">8</span>
+  <span class="sf-dump-index">5</span> =&gt; <span class="sf-dump-num">9</span>
+  <span class="sf-dump-index">6</span> =&gt; <span class="sf-dump-num">10</span>
+  <span class="sf-dump-index">7</span> =&gt; <span class="sf-dump-num">11</span>
+  <span class="sf-dump-index">8</span> =&gt; <span class="sf-dump-num">12</span>
+  <span class="sf-dump-index">9</span> =&gt; <span class="sf-dump-num">13</span>
+  <span class="sf-dump-index">10</span> =&gt; <span class="sf-dump-num">14</span>
+  <span class="sf-dump-index">11</span> =&gt; <span class="sf-dump-num">15</span>
+  <span class="sf-dump-index">12</span> =&gt; <span class="sf-dump-num">16</span>
+  <span class="sf-dump-index">13</span> =&gt; <span class="sf-dump-num">17</span>
+]</pre>
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>arrayGeneratedTens</td>
+                <td>{{ dump(arrayGeneratedTens) }}</td>
+                <td>
+<pre class="sf-dump">
+<span class="sf-dump-note">array:11</span> [
+  <span class="sf-dump-index">0</span> =&gt; <span class="sf-dump-num">0</span>
+  <span class="sf-dump-index">1</span> =&gt; <span class="sf-dump-num">10</span>
+  <span class="sf-dump-index">2</span> =&gt; <span class="sf-dump-num">20</span>
+  <span class="sf-dump-index">3</span> =&gt; <span class="sf-dump-num">30</span>
+  <span class="sf-dump-index">4</span> =&gt; <span class="sf-dump-num">40</span>
+  <span class="sf-dump-index">5</span> =&gt; <span class="sf-dump-num">50</span>
+  <span class="sf-dump-index">6</span> =&gt; <span class="sf-dump-num">60</span>
+  <span class="sf-dump-index">7</span> =&gt; <span class="sf-dump-num">70</span>
+  <span class="sf-dump-index">8</span> =&gt; <span class="sf-dump-num">80</span>
+  <span class="sf-dump-index">9</span> =&gt; <span class="sf-dump-num">90</span>
+  <span class="sf-dump-index">10</span> =&gt; <span class="sf-dump-num">100</span>
+]</pre>
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+{% if arrayFillDesc %}
+            <tr>
+                <td></td>
+                <td colspan="4">
+                        <a href="http://php.net/manual/en/function.array-fill-keys.php">array_fill_keys</a> — Fill an array with values, specifying keys
+                        <br>
+                        <i>Fills an array with the value of the value parameter, using the values of the keys array as
+                            keys.</i><br>
+                        <a href="http://php.net/manual/en/function.array-pad.php">array_pad</a> — Pad array to the specified length with a value
+                        <br>
+                        <i>array_pad() returns a copy of the array padded to size specified by size with value value. If
+                            size is positive then the array is padded on the right, if it's negative then on the left.
+                            If the absolute value of size is less than or equal to the length of the array then no
+                            padding takes place. It is possible to add at most 1048576 elements at a time.</i><br>
+                        <i>Returns a copy of the array padded to size specified by size with value value. If size is
+                            positive then the array is padded on the right, if it's negative then on the left. If the
+                            absolute value of size is less than or equal to the length of the array then no padding
+                            takes place.</i><br>
+                        <a href="http://php.net/manual/en/function.range.php">range</a> — Create an array containing a range of elements
+                        <br>
+                        <i>Returns an array of elements from start to end,
+                            <inclusive class=""></inclusive>
+                        </i><br>
+                </td>
+            </tr>
+            <tr>
+                <td>arrayTheOtherWay</td>
+                <td>{{ dump(arrayTheOtherWay) }}</td>
+                <td>
+<pre class="sf-dump">
+<span class="sf-dump-note">array:8</span> [
+  <span class="sf-dump-index">7</span> =&gt; <span class="sf-dump-num">10</span>
+  <span class="sf-dump-index">6</span> =&gt; <span class="sf-dump-num">9</span>
+  <span class="sf-dump-index">5</span> =&gt; <span class="sf-dump-num">7</span>
+  <span class="sf-dump-index">4</span> =&gt; <span class="sf-dump-num">2</span>
+  <span class="sf-dump-index">3</span> =&gt; <span class="sf-dump-num">1</span>
+  <span class="sf-dump-index">2</span> =&gt; <span class="sf-dump-num">8</span>
+  <span class="sf-dump-index">1</span> =&gt; <span class="sf-dump-num">7</span>
+  <span class="sf-dump-index">0</span> =&gt; <span class="sf-dump-num">4</span>
+]</pre>
+                </td>
+                <td>$arrayOld
+                    {% include 'array/includes/arrayOld.html.twig' %}
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>arrayKeysValues</td>
+                <td>{{ dump(arrayKeysValues) }}</td>
+                <td>
+<pre class="sf-dump">
+<span class="sf-dump-note">array:5</span> [
+  "<span class="sf-dump-key">Red</span>" =&gt; "<span class="sf-dump-str">Rose</span>"
+  "<span class="sf-dump-key">Blue</span>" =&gt; "<span class="sf-dump-str">Violet</span>"
+  "<span class="sf-dump-key">Green</span>" =&gt; "<span class="sf-dump-str">Grass</span>"
+  "<span class="sf-dump-key">Yellow</span>" =&gt; "<span class="sf-dump-str">Sun</span>"
+  "<span class="sf-dump-key">Pink</span>" =&gt; "<span class="sf-dump-str">Pig</span>"
+]</pre>
+                </td>
+                <td>$arrayPoetry
+                    {% include 'array/includes/arrayPoetry.html.twig' %}
+                </td>
+                <td></td>
+            </tr>
+{% if arrayFlipFlopDesc %}
+            <tr>
+                <td></td>
+                <td colspan="4">
+                        <a href="http://php.net/manual/en/function.array-reverse.php">array_reverse</a> — Return an array with elements in reverse order
+                        <br>
+                        <i>Takes an input array and returns a new array with the order of the elements reversed.</i><br>
+                        <a href="http://php.net/manual/en/function.array-flip.php">array_flip</a> — Exchanges all keys with their associated values in an array
+                        <br>
+                        <i>array_flip() returns an array in flip order, i.e. keys from array become values and values
+                            from array become keys.</i><br>
+                        <i>Note that the values of array need to be valid keys, i.e. they need to be either integer or
+                            string. A warning will be emitted if a value has the wrong type, and the key/value pair in
+                            question will not be included in the result.</i><br>
+                        <i>Returns the flipped array on success and NULL on failure.</i><br>
+                </td>
+            </tr>
+
+            <tr>
+                <td>arrayKeyCheck</td>
+                <td>{{ dump(arrayKeyCheck) }}</td>
+                <td>
+                    <pre class="sf-dump"><span class="sf-dump-const">true</span></pre>
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>arrayKeySet</td>
+                <td>{{ dump(arrayKeySet) }}</td>
+                <td>
+                    <pre class="sf-dump"><span class="sf-dump-const">false</span></pre>
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+{% if arrayKeyDesc %}
+            <tr>
+                <td></td>
+                <td colspan="4">
+                        <a href="http://php.net/manual/en/function.array-key-exists.php">array_key_exists</a> — Checks if the given key or index exists in the array
+                        <br>
+                        <i>array_key_exists() returns TRUE if the given key is set in the array. key can be any value
+                            possible for an array index.</i><br>
+                        <a href="http://php.net/manual/en/function.isset.php">isset</a> — Determine if a variable is set and is not NULL
+                        <br>
+                        <i>If a variable has been unset with unset(), it will no longer be set. isset() will return
+                            FALSE if testing a variable that has been set to NULL. Also note that a null character
+                            ("\0") is not equivalent to the PHP NULL constant.</i><br>
+                        <i>If multiple parameters are supplied then isset() will return TRUE only if all of the
+                            parameters are set. Evaluation goes from left to right and stops as soon as an unset
+                            variable is encountered.</i><br>
+                        <p>isset() does not return TRUE for array keys that correspond to a NULL value, while
+                            array_key_exists() does.</p>
+                        <a href="http://php.net/manual/en/function.is-null.php">is_null</a> — Finds whether a variable is NULL
+                        <br>
+                </td>
+            </tr>
+            <tr>
+                <td>arrayFind</td>
+                <td>{{ dump(arrayFind) }}</td>
+                <td>
+                    <pre class="sf-dump"><span class="sf-dump-const">true</span></pre>
+                </td>
+                <td>$arrayPoetry
+                    {% include 'array/includes/arrayPoetry.html.twig' %}
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>arrayGetKeys</td>
+                <td>{{ dump(arrayGetKeys) }}</td>
+                <td>
+<pre class="sf-dump">
+<span class="sf-dump-note">array:5</span> [
+  <span class="sf-dump-index">0</span> =&gt; "<span class="sf-dump-str">Rose</span>"
+  <span class="sf-dump-index">1</span> =&gt; "<span class="sf-dump-str">Violet</span>"
+  <span class="sf-dump-index">2</span> =&gt; "<span class="sf-dump-str">Grass</span>"
+  <span class="sf-dump-index">3</span> =&gt; "<span class="sf-dump-str">Sun</span>"
+  <span class="sf-dump-index">4</span> =&gt; "<span class="sf-dump-str">Pig</span>"
+]</pre>
+                </td>
+                <td>$arrayPoetry
+                    {% include 'array/includes/arrayPoetry.html.twig' %}
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>arrayGetValues</td>
+                <td>{{ dump(arrayGetValues) }}</td>
+                <td>
+<pre class="sf-dump">
+<span class="sf-dump-note">array:5</span> [
+  <span class="sf-dump-index">0</span> =&gt; "<span class="sf-dump-str">Red</span>"
+  <span class="sf-dump-index">1</span> =&gt; "<span class="sf-dump-str">Blue</span>"
+  <span class="sf-dump-index">2</span> =&gt; "<span class="sf-dump-str">Green</span>"
+  <span class="sf-dump-index">3</span> =&gt; "<span class="sf-dump-str">Yellow</span>"
+  <span class="sf-dump-index">4</span> =&gt; "<span class="sf-dump-str">Pink</span>"
+]</pre>
+                </td>
+                <td>$arrayPoetry
+                    {% include 'array/includes/arrayPoetry.html.twig' %}
+                </td>
+                <td></td>
+            </tr>
+{% if arrayKeysDesc %}
+            <tr>
+                <td></td>
+                <td colspan="4">
+                        <a href="http://php.net/manual/en/function.in-array.php">in_array</a> — Checks if a value exists in an array
+                        <br>
+                        <i>Searches haystack for needle using loose comparison unless strict is set.</i><br>
+                        <i>Returns TRUE if needle is found in the array, FALSE otherwise.</i><br>
+                        <a href="http://php.net/manual/en/function.array-keys.php">array_keys</a> — Return all the keys or a subset of the keys of an array
+                        <br>
+                        <i>array_keys() returns the keys, numeric and string, from the array.</i><br>
+                        <i>If the optional search_value is specified, then only the keys for that value are returned.
+                            Otherwise, all the keys from the array are returned.</i><br>
+                        <a href="http://php.net/manual/en/function.array-values.php">array_values</a> — Return all the values of an array
+                        <br>
+                        <i>array_values() returns all the values from the array and indexes the array numerically.</i><br>
+                </td>
+            </tr>
+            <tr>
+                <td>arrayAddition</td>
+                <td>{{ dump(arrayAddition) }}</td>
+                <td>
+                    <pre class="sf-dump"><span class="sf-dump-num">46</span></pre>
+                </td>
+                <td>$arrayNew
+                    {% include 'array/includes/arrayNew.html.twig' %}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>arrayMultiply</td>
+                <td>{{ dump(arrayMultiply) }}</td>
+                <td>
+                    <pre class="sf-dump"><span class="sf-dump-num">282240</span></pre>
+                </td>
+                <td>$arrayNew
+                    {% include 'array/includes/arrayOld.html.twig' %}</td>
+                <td></td>
+            </tr>
+{% if arrayCalculusDesc %}
+            <tr>
+                <td></td>
+                <td colspan="4">
+                        <a href="http://php.net/manual/en/function.array-sum.php">array_sum</a> — Calculate the sum of values in an array
+                        <br>
+                        <i>array_sum() returns the sum of values in an array.</i><br>
+                        <i>Returns the sum of values as an integer or float; 0 if the array is empty.</i><br>
+                        <a href="http://php.net/manual/en/function.array-product.php">array_product</a> — Calculate the product of values in an array
+                        <br>
+                        <i>Returns the product as an integer or float.</i><br>
+                        <a href="http://php.net/manual/en/function.array-reduce.php">array_reduce</a> — Iteratively reduce the array to a single value using a callback function
+                        <br>
+                        <i>array_reduce() applies iteratively the callback function to the elements of the array, so as to reduce the array to a single value.</i><br>
+                        <i>If the array is empty and initial is not passed, array_reduce() returns NULL.</i><br>
+                </td>
+            </tr>
+{% endif %} {# arrayCountDesc #}
+{% endif %} {# arrayOldNewDesc #}
+{% endif %} {# arrayNotInDesc #}
+{% endif %} {# arrayInDesc #}
+{% endif %} {# arrayNoDuplicateDesc #}
+{% endif %} {# arrayFillDesc #}
+{% endif %} {# arrayFlipFlopDesc #}
+{% endif %} {# arrayKeyDesc #}
+{% endif %} {# arrayKeysDesc #}
+{% endif %} {# arrayCalculusDesc #}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,37 @@
+[Step 1] $arrayOld = array(4, 7, 8, 1, 2, 7, 9, 10);
+[Step 2] $arrayNew = [5, 0, 10, 2, 4, 7, 6, 9, 1, 2];
+[Step 3] 'arrayOldCount' => count($arrayOld),
+[Step 4] 'arrayNewCount' => sizeof($arrayNew),
+[Step 4a] 'arrayCountDesc' => true,
+[Step 5] 'arrayOldNew' => array_merge($arrayOld, $arrayNew),
+[Step 5a] 'arrayOldNewDesc' => true,
+[Step 6] Just replace until // End Replacement. Will add Step 6a.
+[Step 6a] $arrayPoetry = array_combine($arrayObject, $arrayColor);
+[Step 7] 'arrayOldNotInNew' => array_diff($arrayOld, $arrayNew),
+[Step 7a] 'arrayNewNotInOld' => array_diff($arrayNew, $arrayOld),
+[Step 8] 'arrayOldNotInNewWithKey' => array_diff_assoc($arrayOld, $arrayNew),
+[Step 8a] 'arrayNewNotInOldWithKey' => array_diff_assoc($arrayNew, $arrayOld),
+[Step 8b] 'arrayNewNotInOldOnKeys' => array_diff_key($arrayNew, $arrayOld),
+[Step 9] $arrayGenerated = array_fill(3, 5, 0);
+[Step 9a] 'arrayNewNotInGeneratedOnKeys' => array_diff_key($arrayNew, $arrayGenerated),
+[Step 10] 'arrayOldInNew' => array_intersect($arrayOld, $arrayNew),
+[Step 10a] 'arrayNewInOld' => array_intersect($arrayNew, $arrayOld),
+[Step 11] 'arrayOldInNewWithKey' => array_intersect_assoc($arrayOld, $arrayNew),
+[Step 11a] 'arrayNewInOldWithKey' => array_intersect_assoc($arrayNew, $arrayOld),
+[Step 12] 'arrayOldInNewOnKeys' => array_intersect_key($arrayOld, $arrayNew),
+[Step 12a] 'arrayNewInOldOnKeys' => array_intersect_key($arrayNew, $arrayOld),
+[Step 13] 'arrayOldNoDuplicate' => array_unique($arrayOld),
+[Step 14] 'arrayGeneratedColor' => array_fill_keys($arrayPoetry, 0),
+[Step 15] 'arrayFillToSize' => array_pad($arrayOld, count($arrayNew), 11),
+[Step 16] 'arrayGeneratedUnits' => range(4, 17),
+[Step 16a] 'arrayGeneratedTens' => range(0, 100, 10),
+[Step 17] 'arrayTheOtherWay' => array_reverse($arrayOld),
+[Step 18] Just replace until // End Replacement.
+[Step 18a] 'arrayKeysValues' => array_flip($arrayPoetry),
+[Step 19] 'arrayKeyCheck' => array_key_exists('thisPoem', $arrayKeys),
+[Step 19a] 'arrayKeySet' => isset($arrayKeys['thisPoem']),
+[Step 20] 'arrayFind' => in_array('Yellow', $arrayPoetry, true),
+[Step 21] 'arrayGetKeys' => array_keys($arrayPoetry),
+[Step 21a] 'arrayGetValues' => array_values($arrayPoetry),
+[Step 22] 'arrayAddition' => array_sum($arrayNew),
+[Step 22a] 'arrayMultiply' => array_product($arrayOld),
